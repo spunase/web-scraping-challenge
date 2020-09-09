@@ -67,7 +67,6 @@ def scrape():
 
       # Store title
       title = item.find('h3').text
-      title = title.replace("Enhanced", "")
       # Store link that leads to full image website
       individual_img_url = item.find('a', class_='itemLink product-item')['href']
       # Visit the link that contains the full image website 
