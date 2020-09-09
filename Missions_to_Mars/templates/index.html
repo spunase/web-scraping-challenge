@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="mars.css"> -->
+</head>
+
+<bodyclass="text-white" style="background-color: black;">
+  
+<div clas="container">
+            
+    <div class="jumbotron text-center">
+        <h1 class="display-3"><b>Mission to Mars</b></h1>
+      <p><a class="btn btn-primary btn-lg bg-danger" href="../scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- NASA Mars News -->
+    <div class="container-fluid">
+        <h2>Latest Mars News</h2>
+        <h4>{{mars.news_title}}</h4>
+        <p>{{mars.news_p}}</p>
+    </div>
+    <!-- JPL Mars Space Images - Featured Image -->
+    <div class="container">
+        <div class="row" id="mars-featured-image">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+            <h4>Featured Mars Image</h4>
+                <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
+                <img src="{{mars.Featured_image}}" class="img-responsive" style="max-width:100%; max-height: auto;" alt="Mars Featured Image"/>
+            </div>
+        </div>
+    </div>    
+    <!-- Mars Weather -->
+    <div class="col-lg-4 col-md-4 col-sm-12" id="mars-weather">
+        <div class="card" style="max-width: 18rem;">
+            <div class="card-body text-white bg-danger">
+                <h4 class="card-title">Current Weather on Mars</h4>
+                <p class="card-text">{{mars.Weather}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Mars Facts -->
+    <br>
+    <div class="row" id="mars-facts">
+        <div class="col-md-12 table table-striped">
+            <h4>Mars Facts</h4>
+            {{mars.Facts | safe}}
+        </div>
+    </div>
+    <!-- Mars Hemispheres -->
+    <h4 style="padding-top: 20px; margin-top: 50px; text-align: center;">Mars Hemispheres</h4>
+    <div class="container my-4">
+
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+            {% for hemisphere in mars.Hemisphere_image %}
+            <div class="col-lg-6 col-md-6 mb-6">                         
+                <div class="card text-white bg-danger" style= "margin-top: 5px; padding-top: 5px">
+                    <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
+                    
+                    <img class="img-fluid mb-6" src="{{hemisphere.image_url | safe}}" alt="..." data-wow-delay="0.2s"/>
+                    
+                    <div class="card-body">
+                        <p class="card-text">{{hemisphere.title}}</p>
+                    </div> 
+                </div>   
+       
+            </div>
+            {% endfor %}
+          <!--Grid column-->   
+        </div>
+        <!--Grid row-->
+    </div>
+  
+    <!-- Bootstrap JavaScript -->
+    <!-- jQuery, Popper.js & Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
