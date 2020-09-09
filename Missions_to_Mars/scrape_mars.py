@@ -1,13 +1,10 @@
+# Dependencies
 from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd
 import pymongo
 import time
-# DB Setup
 
-# client = pymongo.MongoClient('mongodb://localhost:27017')
-# db = client.mars_db
-# collection = db.mars
 
 def init_browser():
    # @NOTE: Replace the path with your actual path to the chromedriver
@@ -16,7 +13,6 @@ def init_browser():
 
 def scrape():
    browser = init_browser()
-   # collection.drop()
     
    #mars news title and paragraph  
    news_url = "https://mars.nasa.gov/news/"
@@ -90,7 +86,7 @@ def scrape():
    # Close the browser after scraping
    browser.quit()
    mars_data = {}
-   # Return results
+   # Store data in a dictionary
    mars_data = {
       'news_title' : news_title,
       'news_p': news_p, 
@@ -99,6 +95,5 @@ def scrape():
       'Facts': mars_facts, 
       'Hemisphere_image': hemisphere_image_urls
    }
-   # print(mars_data)
-   # collection.insert_many(mars_data)
+   # Return results
    return mars_data  
