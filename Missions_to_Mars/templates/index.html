@@ -14,7 +14,7 @@
 
 <bodyclass="text-white" style="background-color: black;">
   
-<div clas="container">
+<div clas="container" style="padding:30px">
             
     <div class="jumbotron text-center">
         <h1 class="display-3"><b>Mission to Mars</b></h1>
@@ -32,16 +32,16 @@
     <!-- JPL Mars Space Images - Featured Image -->
     
     <div class="row" id="mars-featured-image">
-        <div class = "col-md-8">
+        <div class = "col-lg-6 col-md-6 mb-6">
     
         <h4>Featured Mars Image</h4>
             <!-- If Images are False/None/Non-Existent, Then Default to Error Message -->
-            <img src="{{mars.Featured_image}}" class="img-responsive" style="max-width:100%; max-height: auto;" alt="Mars Featured Image"/>
+            <img src="{{mars.Featured_image}}" class="img-fluid mb-6" style="width:700px; height: 500px" alt="Mars Featured Image"/>
         </div>
     
     
 <!-- Mars Weather -->
-        <div class="col-md-4" id="mars-weather">
+        <div class="col-lg-6 col-md-6 mb-6" id="mars-weather">
             <div class="card" style="max-width: 18rem;">
                 <div class="card-body text-white bg-danger">
                     <h4 class="card-title">Current Weather on Mars</h4>
